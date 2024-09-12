@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: weatherapp-configmap
+data:
+  PORT: "8000"
+  DURATION: "300"
+  APIKEY: "API_KEY"
+  CITY: "tehran"

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherapp-deployment
+  labels:
+    app: weatherapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: weatherapp
+  template:
+    metadata:
+      labels:
+        app: weatherapp
+    spec:
+      containers:
+      - name: weatherapp
+        image: abazshoushtari/cc_hw2p2_weather_app:v1.0
+        ports:
+        - containerPort: 8000
+        envFrom:
+          - configMapRef:
+              name: weatherapp-configmap
+#        volumeMounts:
+#          - mountPath: /configs
+#            name: config-volume
+#      volumes:
+#      - name: config-volume
+#        configMap:
+#          name: weatherapp-config
