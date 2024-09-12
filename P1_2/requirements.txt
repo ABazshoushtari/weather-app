@@ -1,0 +1,7 @@
+fastapi==0.104.1
+pydantic==2.5.1
+pydantic_core==2.14.3
+idna
+redis==5.0.1
+requests
+uvicorn==0.15.0

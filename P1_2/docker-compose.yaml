@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  cc_hw2p1_weather_app:
+    image: abazshoushtari/cc_hw2p1_weather_app:v1.1
+    container_name: cc_hw2p1_weather_app
+    networks:
+      - mynetwork
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+    container_name: redis
+    networks:
+      - mynetwork
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  redis_data:
